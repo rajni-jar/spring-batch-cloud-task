@@ -19,7 +19,7 @@ public class BatchConfig {
     private JobBuilderFactory jobBuilderFactory;
     @Autowired private StepBuilderFactory stepBuilderFactory;
 
-    public Job job2() {
+    public Job helloJob() {
         return jobBuilderFactory
                 .get("job2")
                 .start(stepBuilderFactory.get("job2step1")
@@ -28,7 +28,7 @@ public class BatchConfig {
                             public RepeatStatus execute(
                                     StepContribution contribution,
                                     ChunkContext chunkContext) throws Exception {
-                                System.out.println("This is batch job");
+                                System.out.println("Here we can add business logic to process job");
                                 return RepeatStatus.FINISHED;
                             }
                         }).build()).build();

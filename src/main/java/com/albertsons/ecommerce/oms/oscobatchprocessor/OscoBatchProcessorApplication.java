@@ -30,7 +30,7 @@ public class OscoBatchProcessorApplication implements CommandLineRunner {
 		try {
 			JobParameters jobParameters = new JobParametersBuilder()
 					.addLong("batch job ", System.currentTimeMillis()).toJobParameters();
-			Job job = batchConfig.job2();
+			Job job = batchConfig.helloJob();
 				jobLauncher.run(job, jobParameters);
 		} catch (Exception e) {
 			log.error("Error handling Batch job : ", e);
